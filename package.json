@@ -17,7 +17,7 @@
   "license": "ISC",
   "description": "rashu-md pair",
   "dependencies": {
-    "@whiskeysockets/baileys": "npm:baileys-dtz",
+    "@whiskeysockets/baileys": "git+https://gitlab.com/amilaKumara/baileys-pmd",
     "qrcode": "^1.5.4",
     "awesome-phonenumber": "7.2.0",
     "pino": "9.5.0",
