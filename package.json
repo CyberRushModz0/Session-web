@@ -1,30 +1,28 @@
 {
-  "name": "rashu-web",
-  "version": "0.0.1",
-  "description": "A multi-functional WhatsApp bot Web paircode.",
+  "name": "webpair",
+  "version": "1.0.0",
+  "description": "WhatsApp bot session pairing and delivery system via web using Baileys",
   "main": "index.js",
-  "type": "module",
-  "engines" : { 
-    "npm" : ">=9.7.2",
-    "node" : ">=20.0.0"
-    },
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "stop": "echo 'No stop functionality (use Ctrl+C to stop)'",
     "restart": "echo 'No restart functionality (use manual restart)'"
   },
-  "author": "QUEEN-RASHU-MD OWNER",
+  "author": "Umar Rehman (Um4r719)",
   "license": "ISC",
-  "description": "rashu-md pair",
   "dependencies": {
-    "@whiskeysockets/baileys": "6.7.18",
-    "qrcode": "^1.5.4",
-    "awesome-phonenumber": "7.2.0",
-    "pino": "9.5.0",
-    "phone" : "3.1.55",
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
-    "path": "^0.12.7",
-    "megajs": "^1.3.5"
+    "@whiskeysockets/baileys": "git+https://gitlab.com/amilaKumara/baileys-pmd",
+    "awesome-phonenumber": "^2.64.0",
+    "body-parser": "^1.20.2",
+    "jimp": "^0.16.1",
+    "express": "^4.18.3",
+    "megajs": "^1.1.0",
+    "phone": "^3.1.30",
+    "pino": "^8.17.0",
+    "qrcode": "^1.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>𝐐𝐔𝐄𝐄𝐍-𝐑𝐀𝐒𝐇𝐔-𝐌𝐃 PAIR CODE</title>
+  <title>●𝐐𝐔𝐄𝐄𝐍 𝐑𝐀𝐒𝐇𝐔 𝐌𝐃●</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
@@ -13,17 +14,24 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-image: url("https://i.ibb.co/fYj96cJN/SulaMd.jpg"); /* Set the background image */
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      overflow: hidden; /* Hide overflow to prevent scrollbars */
       font-family: Arial, sans-serif;
+      background-size: cover;
+      animation: changeBackground 15s infinite;
+    }
+
+    @keyframes changeBackground {
+      10%, 100% { background-image: url('https://wallpapercave.com/wp/wp3764268.jpg'); }
+      25% { background-image: url('https://wallpapercave.com/uwp/uwp4398200.webp'); }
+      50% { background-image: url('https://wallpapercave.com/wp/KEwaPYO.jpg'); }
+      75% { background-image: url('https://wallpapercave.com/uwp/uwp4403209.jpeg'); }
     }
 
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      z-index: 1; /* Ensure content is above clouds */
     }
 
     .box {
@@ -125,15 +133,16 @@
         <div id="text">
           <i class="fa fa-user"></i>
           <p>
-            <h3 class="centered-text">Link with phone number</h3>
+            <h3 class="centered-text">QUEEN RASHU MD PAIR</h3>
             <br>
-            <h6>⚙Enter your number with country code.⚙</h6>
+            <h2>ENTER YOUR NUMBER ⬇️</h2>
+            <h4>© ᴅᴇᴠᴇʟᴏᴘ ʙʏ ɴɪᴘᴜɴ ʜᴀʀꜱʜᴀɴᴀ</h4>
+            <br>
             <div class="input-container">
-              <input placeholder="+94727319036" type="number" id="number" placeholder="💐enter your phone number with country code" name="">
+              <input placeholder="947273xxxxx" type="number" id="number" placeholder="Please Enter Your Number" name="">
               <button id="submit">enter</button>
             </div>
-           
-            <a id="waiting-message" class="centered-text" style="display: none;">in process...</a>
+                    <a id="waiting-message" class="centered-text" style="display: none;">in process...</a>
             <br>
             <br>
             <main id="pair"></main>
@@ -166,9 +175,9 @@
     b.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!c.value) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❗Enter your whatsapp number with country code.</a><br><br>';
+        a.innerHTML = '<a style="color:black;font-weight:bold">Please Enter Your Number</a><br><br>';
       } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">🚫 Invalid number format</a><br><br>';
+        a.innerHTML = '<a style="color:black;font-weight:bold">Please Give Valid Number</a><br><br>';
       } else {
         const bc = c.value.replace(/[^0-9]/g, "");
         let bb = "";
@@ -187,7 +196,7 @@
         c.type = "text";
         c.value = "+" + bb;
         c.style = "color:black;font-size:20px";
-        a.innerHTML = '<a style="color:black;font-weight:bold">Please wait 🔖 </a><br><br>';
+        a.innerHTML = '<a style="color:black;font-weight:bold">Please Wait</a><br><br>';
         let { data } = await axios(`/code?number=${bc}`);
         let code = data.code || "Service Unavailable";
         a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:black;font-weight:bold">' + code + '</span></font><br><br><br>';
@@ -195,4 +204,4 @@
     });
   </script>
 </body>
-</html>
+              </html>
