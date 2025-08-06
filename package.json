@@ -1,28 +1,25 @@
 {
-  "name": "webpair",
-  "version": "1.0.0",
-  "description": "WhatsApp bot session pairing and delivery system via web using Baileys",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "stop": "echo 'No stop functionality (use Ctrl+C to stop)'",
-    "restart": "echo 'No restart functionality (use manual restart)'"
-  },
-  "author": "Umar Rehman (Um4r719)",
-  "license": "ISC",
+"name": "web-pair",
+    "version": "0.0.1",
+    "description": "A multi functional whatsapp bot Web paircode.",
+    "main": "index.js",
+    "scripts": {
+      "start": "pm2 start index.js --deep-monitoring --attach --name vajira-md",
+      "stop": "pm2 stop vajira-md",
+     "restart": "pm2 restart vajira-md"
+    },
   "dependencies": {
-    "@whiskeysockets/baileys": "git+https://gitlab.com/amilaKumara/baileys-pmd",
+        "@whiskeysockets/baileys": "git+https://gitlab.com/amilaKumara/baileys-pmd",              
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "qrcode": "^1.5.3",
     "awesome-phonenumber": "^2.64.0",
-    "body-parser": "^1.20.2",
-    "jimp": "^0.16.1",
-    "express": "^4.18.3",
-    "megajs": "^1.1.0",
-    "phone": "^3.1.30",
-    "pino": "^8.17.0",
-    "qrcode": "^1.5.3"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
-  }
+    "pino": "^8.1.0",
+    "phone" : "3.1.30",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.1",
+    "path": "^0.12.7",
+    "megajs": "1.1.7",
+    "pm2": "^5.4.0",
+    "async-mutex":"0.4.1"
+   }
 }

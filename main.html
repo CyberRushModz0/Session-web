@@ -1,501 +1,155 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUEEN-RASHU-MD</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        
-        :root {
-            --my-red: #ff1a1a;
-            --my-dark: #000000;
-            --my-light-red: #ff4d4d;
-            --my-gold: #ff9999;
-            --my-glow: rgba(255, 26, 26, 0.6);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <title>RASHU-MD PAIR</title>
+  <style>
+    /* 🔥 Fullscreen Background Video */
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
 
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        
-        body {
-            background-color: var(--my-dark);
-            color: white;
-            min-height: 100vh;
-            position: relative;
-        }
+    /* 🔥 Main Page Styling */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--my-dark), #111111, var(--my-dark));
-            z-index: 0;
-        }
+    /* 🔥 Title Animation */
+    h3 {
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: slideIn 2s forwards;
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, red, yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-        .spark-effect {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: var(--my-red);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--my-red);
-            animation: sparkMove 10s ease-in-out infinite;  
-        }
+    /* 🔥 Button Floating Effect */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
 
-        @keyframes sparkMove {
-            0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.7; }
-            100% { transform: translate(80vw, -80vh) scale(1.5); opacity: 0; }
-        }
+    .button {
+      width: 180px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      background: black;
+      transition: 0.2s ease-in-out;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+      animation: floatUpDown 2s infinite ease-in-out;
+    }
 
-        
-        .pulse-wave {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 0, 0, 0.08), transparent 60%);
-            animation: wavePulse 10s infinite; /* 10-second animation */
-            z-index: -1;
-        }
+    /* 🔥 Floating Animation (Up & Down) */
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-        @keyframes wavePulse {
-            0% { opacity: 0.1; transform: scale(0.7); }
-            100% { opacity: 0.4; transform: scale(1.3); }
-        }
+    /* 🔥 Button Hover Effect (Size Increase) */
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px red, 0 0 40px yellow, 0 0 60px cyan;
+    }
 
-      
-        .main-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 25px;
-            position: relative;
-            z-index: 1;
-        }
+    /* 🔥 Button Click Effect (Bounce Down & Up) */
+    .button:active {
+      transform: scale(0.95) translateY(4px);
+      box-shadow: 0 0 25px yellow, 0 0 50px cyan;
+    }
 
-       
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 35px 0;
-            margin-bottom: 45px;
-        }
+    /* 🔥 Footer Animation */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #111;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+      animation: footerFade 3s ease-in-out infinite;
+    }
 
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .logo-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 4px solid var(--my-red);
-            transition: all 0.5s;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.15) rotate(15deg);
-            box-shadow: 0 0 45px var(--my-red);
-        }
-
-        .brand-text h1 {
-            font-size: 2.3rem;
-            background: linear-gradient(to right, var(--my-red), var(--my-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
-        }
-
-        .brand-text span {
-            font-size: 1.1rem;
-            color: var(--my-light-red);
-            letter-spacing: 1.5px;
-        }
-
-        .content-box {
-            text-align: center;
-            padding: 45px 25px;
-            background: rgba(0, 0, 0, 0.65);
-            border-radius: 18px;
-            border: 2px solid var(--my-red);
-            box-shadow: 0 0 18px var(--my-red);
-            margin-bottom: 45px;
-        }
-
-        .feature-pic {
-            max-width: 100%;
-            max-height: 450px;
-            border-radius: 12px;
-            border: 3px solid var(--my-red);
-            box-shadow: 0 0 25px var(--my-red);
-            margin-bottom: 35px;
-            transition: all 0.5s;
-        }
-
-        .feature-pic:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 50px var(--my-red);
-        }
-
-        .content-box h2 {
-            font-size: 2.1rem;
-            margin-bottom: 25px;
-            color: var(--my-light-red);
-            text-shadow: 0 0 12px var(--my-glow);
-        }
-
-        .content-box p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            max-width: 850px;
-            line-height: 1.7;
-        }
-
-        /* Button Group */
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 18px;
-            margin-top: 25px;
-        }
-
-        .custom-btn {
-            padding: 14px 35px;
-            border-radius: 55px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.4s;
-            border: 2px solid transparent;
-            position: relative;
-        }
-
-        .custom-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.7s;
-        }
-
-        .custom-btn:hover::before {
-            left: 120%;
-        }
-
-        .download-btn {
-            background: linear-gradient(to right, var(--my-red), var(--my-dark));
-            border-color: var(--my-red);
-        }
-
-        .pair-btn {
-            background: linear-gradient(to right, var(--my-dark), #333);
-            border-color: var(--my-gold);
-        }
-
-        .contact-btn {
-            background: linear-gradient(to right, var(--my-dark), #333);
-            border-color: var(--my-gold);
-        }
-
-        .github-btn {
-            background: linear-gradient(to right, var(--my-dark), #333);
-            border-color: var(--my-gold);
-        }
-
-        .heroku-btn {
-            background: linear-gradient(to right, var(--my-dark), #333);
-            border-color: var(--my-gold);
-        }
-
-        .custom-btn:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
-            border-color: var(--my-gold);
-        }
-
-
-        .footer-section {
-            text-align: center;
-            padding: 35px;
-            margin-top: 55px;
-        }
-
-        .feedback-area {
-            margin: 45px auto;
-            max-width: 800px;
-            background: rgba(0, 0, 0, 0.65);
-            border-radius: 18px;
-            border: 2px solid var(--my-red);
-            box-shadow: 0 0 18px var(--my-red);
-            padding: 25px;
-        }
-
-        .input-field {
-            margin-bottom: 18px;
-        }
-
-        .user-name, .user-comment {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 12px;
-            background: rgba(255, 26, 26, 0.25);
-            border: 2px solid var(--my-red);
-            border-radius: 10px;
-            color: #fff;
-            font-size: 15px;
-            transition: all 0.4s;
-        }
-
-        .user-name:focus, .user-comment:focus {
-            border-color: var(--my-gold);
-            background: rgba(255, 26, 26, 0.35);
-            box-shadow: 0 0 12px var(--my-red);
-        }
-
-        .user-comment {
-            height: 130px;
-            resize: none;
-        }
-
-        .post-comment {
-            background: linear-gradient(45deg, var(--my-red), var(--my-gold));
-            color: #fff;
-            border: none;
-            padding: 14px 30px;
-            border-radius: 30px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            transition: all 0.4s;
-        }
-
-        .post-comment:hover {
-            transform: scale(1.07);
-            box-shadow: 0 6px 18px rgba(255, 26, 26, 0.6);
-        }
-
-        .comment-list {
-            margin-top: 30px;
-            max-height: 320px;
-            overflow-y: auto;
-            padding-right: 12px;
-        }
-
-        .user-comment-box {
-            background: rgba(255, 26, 26, 0.35);
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            border-left: 5px solid var(--my-red);
-            position: relative;
-        }
-
-        .user-comment-box .comment-author {
-            color: var(--my-gold);
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
-
-        .user-comment-box .comment-time {
-            font-size: 13px;
-            color: #2CFF01;
-            margin-bottom: 10px;
-        }
-
-        .user-comment-box p {
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .remove-comment {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: #2CFF01;
-            border: none;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: none;
-        }
-
-        .user-comment-box:hover .remove-comment {
-            display: block;
-        }
-
-        .remove-comment:hover {
-            background: #2CFF01;
-        }
-
-        @media (max-width: 768px) {
-            .top-header {
-                flex-direction: column;
-                gap: 25px;
-            }
-            .logo-img {
-                width: 70px;
-                height: 70px;
-            }
-            .brand-text h1 {
-                font-size: 1.9rem;
-            }
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            .custom-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            .feedback-area {
-                padding: 18px;
-            }
-        }
-    </style>
+    @keyframes footerFade {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-layer"></div>
-    <div class="pulse-wave"></div>
 
-    <div class="main-wrapper">
-        <header class="top-header">
-            <div class="brand-logo">
-                <img src="https://i.ibb.co/7N087ZHh/Queen-Rashu-Md.jpg" alt="QUEEN RASHU MD Logo" class="logo-img">
-                <div class="brand-text">
-                    <h1>𝐐𝐔𝐄𝐄𝐍-𝐑𝐀𝐒𝐇𝐔-𝐌𝐃</h1>
-                    <span>Sri Lanka's Top WhatsApp Bot</span>
-                </div>
-            </div>
-        </header>
+  <!-- 🔥 Background Video -->
+  <div class="video-container">
+    <video autoplay loop muted playsinline>
+      <source src="https://files.catbox.moe/dvjdwz.mp4" type="video/mp4">
+    </video>
+  </div>
 
-        <main class="content-box">
-            <img src="https://i.ibb.co/7N087ZHh/Queen-Rashu-Md.jpg" alt="QUEEN RASHU MD Feature" class="feature-pic">
-            <h2>𝗤𝗨𝗘𝗘𝗡 𝗥𝗔𝗦𝗛𝗨 𝗠𝗗 - Crafted by Nipun</h2>
-            <p>QUEEN RASHU MD is a swift, user-friendly, and powerful multi-device WhatsApp bot.</p>
-            <div class="btn-group">
-                <a href="https://www.mediafire.com/file/rpj8619o5dllmln/rashu-MD.zip/file" class="custom-btn download-btn">
-                    <i class="fas fa-download"></i> Get It Now
-                </a>
-                <a href="/pair" class="custom-btn pair-btn">
-                    <i class="fas fa-link"></i> Pair Code
-                </a>
-                <a href="https://wa.me/94727319036" target="_blank" class="custom-btn contact-btn">
-                    <i class="fas fa-headset"></i> Reach Owner
-                </a>
-                <a href="https://github.com/CyberRushModz0/Queen-Rashu-Md-V2" target="_blank" class="custom-btn github-btn">
-                    <i class="fab fa-github"></i> GitHub Repo
-                </a>
-                <a href="https://dashboard.heroku.com/new?template=https://github.com/newhukanaputha/KARI-RASHU-NEW-UPDATE" target="_blank" class="custom-btn heroku-btn">
-                    <i class="fas fa-power-off"></i> Heroku Deploy
-                </a>
-            </div>
-        </main>
+  <div class="button-container">
+    <h3>𝐑𝐀𝐒𝐇𝐔-𝐌𝐃 𝐖𝐄𝐁</h3>
+    <a href="/qr" class="button"> QR-CODE </a>
+    <a href="/pair" class="button"> PAIRING-CODE </a>
+    <a href="https://github.com/CyberRushModz0/Queen-Rashu-Md-New-Update/fork" class="button"> FORK BOT </a>
+    <a href="https://whatsapp.com/channel/0029VaicB1MISTkGyQ7Bqe23" class="button"> WHATSAPP CHANNEL </a>
+    <a href="https://chat.whatsapp.com/FiMIHzvZEs8LpeHAh6XriI?mode=ac_t" class="button"> WHATSAPP GROUP </a>
+    <a href="https://wa.me/+94727319036?text=HI+RASHU" class="button"> OWNER </a>
+  </div>
 
-        <div class="feedback-area">
-            <div class="input-field">
-                <input type="text" class="user-name" placeholder="Your Name" required>
-                <textarea class="user-comment" placeholder="Leave your feedback..." required></textarea>
-                <button class="post-comment">Submit Feedback</button>
-            </div>
-            <div class="comment-list" id="comment-list"></div>
-        </div>
+  <footer>
+    RASHU-MD &copy; <span id="currentYear"></span>
+  </footer>
 
-        <footer class="footer-section">
-            <p>© QUEEN RASHU MD 2025</p>
-        </footer>
-    </div>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 
-    <script>
-       
-        function addSparks(count) {
-            const bgLayer = document.querySelector('.bg-layer');
-            for (let i = 0; i < count; i++) {
-                const spark = document.createElement('div');
-                spark.className = 'spark-effect';
-                spark.style.left = Math.random() * 100 + '%';
-                spark.style.top = Math.random() * 100 + '%';
-                spark.style.width = Math.random() * 5 + 4 + 'px';
-                spark.style.height = spark.style.width;
-                spark.style.animationDuration = Math.random() * 8 + 10 + 's';
-                spark.style.animationDelay = Math.random() * 6 + 's';
-                bgLayer.appendChild(spark);
-            }
-        }
-        addSparks(25);
-
-       
-        function showComments() {
-            const savedComments = JSON.parse(localStorage.getItem('userFeedback')) || [];
-            const commentArea = document.getElementById('comment-list');
-            commentArea.innerHTML = '';
-            savedComments.forEach(feedback => {
-                const newFeedback = document.createElement('div');
-                newFeedback.className = 'user-comment-box';
-                newFeedback.innerHTML = `
-                    <div class="comment-author">${feedback.name}</div>
-                    <div class="comment-time">${feedback.time}</div>
-                    <p>${feedback.text}</p>
-                    <button class="remove-comment">Remove</button>
-                `;
-                commentArea.appendChild(newFeedback);
-
-                const removeBtn = newFeedback.querySelector('.remove-comment');
-                removeBtn.addEventListener('click', function() {
-                    if (feedback.name === 'Admin') {
-                        commentArea.removeChild(newFeedback);
-                        const updatedFeedback = savedComments.filter(f => f.time !== feedback.time);
-                        localStorage.setItem('userFeedback', JSON.stringify(updatedFeedback));
-                    }
-                });
-            });
-        }
-
-        
-        document.querySelector('.post-comment').addEventListener('click', function() {
-            const name = document.querySelector('.user-name').value;
-            const comment = document.querySelector('.user-comment').value;
-            if (name && comment) {
-                const newFeedback = {
-                    name: name,
-                    text: comment,
-                    time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' })
-                };
-                let feedbackList = JSON.parse(localStorage.getItem('userFeedback')) || [];
-                feedbackList.push(newFeedback);
-                localStorage.setItem('userFeedback', JSON.stringify(feedbackList));
-                showComments();
-                document.querySelector('.user-name').value = '';
-                document.querySelector('.user-comment').value = '';
-            }
-        });
-
-        
-        window.onload = showComments;
-    </script>
 </body>
 </html>
